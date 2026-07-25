@@ -1,0 +1,892 @@
+/* ==========================================================================
+   RAJ LAW ASSOCIATES - Premium 'Contact Us' Page & Consultation Portal
+   "The Million-Dollar Vibe" Corporate Law Firm UI/UX Architecture
+   ========================================================================== */
+
+/* 1. Page Container & Layout Strategy */
+.contact-page-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #F8F9FA; /* Subtle, light Pearl Grey background */
+  padding-bottom: 100px;
+  font-family: 'Inter', sans-serif;
+  color: #212529;
+}
+
+/* Header Section: Top Banner with Dark Navy Background & Strict 170px Top Padding */
+.contact-header-banner {
+  background: linear-gradient(135deg, #0B132B 0%, #1C2541 100%);
+  padding: 170px 0 90px 0 !important;
+  border-bottom: 2px solid #D4AF37;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .contact-header-banner {
+    padding: 120px 0 60px 0 !important;
+  }
+}
+
+.banner-glow-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(11, 19, 43, 0) 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-banner-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  color: #FFFFFF;
+  margin: 12px 0 16px 0;
+  letter-spacing: 0.5px;
+}
+
+.contact-banner-subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #D4AF37;
+  max-width: 660px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Main Grid: 2-column CSS Grid (50% / 50%) for desktop, vertical on mobile */
+.contact-main-section {
+  padding: 60px 0 40px 0;
+}
+
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+/* ==========================================================================
+   2. LEFT COLUMN: Chamber Info, Executive Access & Location
+   ========================================================================== */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.info-header-block {
+  margin-bottom: 4px;
+}
+
+.info-subtag {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.contact-section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: #0B132B;
+  margin: 0 0 16px 0;
+  line-height: 1.25;
+}
+
+.contact-section-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 15.5px;
+  color: #4B5563;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Interactive Contact Cards */
+.contact-blocks-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-info-card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 22px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #D4AF37;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-4px);
+  border-color: #D4AF37;
+  box-shadow: 0 15px 30px rgba(11, 19, 43, 0.08);
+}
+
+.contact-info-card:hover::before {
+  opacity: 1;
+}
+
+.icon-box-navy {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #0B132B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 6px 15px rgba(11, 19, 43, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.contact-info-card:hover .icon-box-navy {
+  transform: scale(1.08);
+}
+
+.icon-box-gold {
+  color: #D4AF37;
+}
+
+.card-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-main-val {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0B132B;
+  margin: 0;
+}
+
+.card-sub-val {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: #4B5563;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.link-hover {
+  color: #0B132B;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.link-hover:hover {
+  color: #D4AF37;
+}
+
+/* Chamber Working Hours Box */
+.chamber-hours-box {
+  background-color: #0B132B;
+  color: #FFFFFF;
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 25px rgba(11, 19, 43, 0.15);
+}
+
+.hours-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(212, 175, 55, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hours-text {
+  flex: 1;
+}
+
+.hours-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #D4AF37;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.hours-grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  row-gap: 8px;
+  font-size: 13.5px;
+  color: #E5E7EB;
+}
+
+@media (max-width: 500px) {
+  .hours-grid {
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+  }
+}
+
+/* Interactive Map Container */
+.map-embed-container {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #D4AF37;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  background-color: #FFFFFF;
+}
+
+.map-header-badge {
+  background-color: #0B132B;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.map-badge-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #D4AF37;
+}
+
+.map-badge-hint {
+  font-size: 12px;
+  color: #9CA3AF;
+  font-style: italic;
+}
+
+.map-iframe-wrapper {
+  width: 100%;
+  height: 260px;
+}
+
+.map-embed-iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: contrast(105%) saturate(110%);
+}
+
+/* ==========================================================================
+   3. RIGHT COLUMN: Premium Lawyer Case Enquiry Portal
+   ========================================================================== */
+.form-card-col {
+  width: 100%;
+}
+
+.enquiry-form-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 40px 36px;
+  box-shadow: 0 20px 50px rgba(11, 19, 43, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.form-header {
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.form-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.form-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.12);
+  color: #0B132B;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 50px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.status-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseGreen 1.5s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #0B132B;
+  margin: 0 0 8px 0;
+}
+
+.form-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Domain Selector Pills */
+.form-field-section {
+  margin-bottom: 26px;
+}
+
+.section-field-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0B132B;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.label-with-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.label-with-counter .section-field-label {
+  margin-bottom: 0;
+}
+
+.char-counter {
+  font-size: 12px;
+  color: #9CA3AF;
+  font-weight: 500;
+}
+
+.domain-pills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.domain-pill-btn {
+  background: #F8F9FA;
+  border: 1px solid #D1D5DB;
+  color: #4B5563;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.domain-pill-btn:hover {
+  border-color: #D4AF37;
+  background: rgba(212, 175, 55, 0.08);
+  color: #0B132B;
+}
+
+.domain-pill-btn.active-domain {
+  background: #0B132B;
+  border-color: #0B132B;
+  color: #D4AF37;
+  box-shadow: 0 4px 12px rgba(11, 19, 43, 0.2);
+}
+
+/* Client Details Form Grid */
+.form-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.col-full {
+  grid-column: span 2;
+}
+
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.input-field,
+.textarea-field {
+  width: 100%;
+  padding: 13px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  color: #0B132B;
+  background-color: #FFFFFF;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.textarea-field {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.input-field:hover,
+.textarea-field:hover {
+  border-color: #9CA3AF;
+}
+
+.input-field:focus,
+.textarea-field:focus {
+  border-color: #0B132B;
+  box-shadow: 0 0 0 3px rgba(11, 19, 43, 0.08);
+}
+
+/* Urgent Priority Checkbox Box */
+.urgent-toggle-box {
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px dashed #D4AF37;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 26px;
+  transition: all 0.2s ease;
+}
+
+.urgent-toggle-box:hover {
+  background: rgba(212, 175, 55, 0.15);
+}
+
+.urgent-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.urgent-checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #0B132B;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.urgent-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.urgent-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0B132B;
+}
+
+.urgent-desc {
+  font-size: 12.5px;
+  color: #4B5563;
+  line-height: 1.4;
+}
+
+/* Submit Button */
+.submit-btn-navy {
+  width: 100%;
+  background: linear-gradient(135deg, #0B132B 0%, #1C2541 100%);
+  color: #D4AF37;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 15.5px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  border: 1px solid #D4AF37;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 20px rgba(11, 19, 43, 0.2);
+}
+
+.submit-btn-navy:hover {
+  background: #D4AF37;
+  color: #0B132B;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(212, 175, 55, 0.35);
+}
+
+.submit-btn-navy:hover .text-gold {
+  color: #0B132B !important;
+}
+
+.submit-btn-navy:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-flex,
+.submitting-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.spinner-mini {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-top-color: #D4AF37;
+  border-radius: 50%;
+  animation: spinSlow 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
+
+/* Security & Privilege Footer */
+.form-security-note {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed #E5E7EB;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 12.5px;
+  color: #6B7280;
+  line-height: 1.55;
+}
+
+.security-icon {
+  color: #D4AF37;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   4. SUCCESS CONFIRMATION VIEW - The Million Dollar Reveal
+   ========================================================================== */
+.form-success-view {
+  text-align: center;
+  padding: 20px 10px;
+  animation: fadeInScale 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.success-icon-badge {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #0B132B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  border: 2px solid #D4AF37;
+  box-shadow: 0 10px 25px rgba(11, 19, 43, 0.2);
+}
+
+.success-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #0B132B;
+  margin: 0 0 14px 0;
+}
+
+.success-message {
+  font-size: 15px;
+  color: #4B5563;
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 28px auto;
+}
+
+.case-ref-box {
+  background: #F8F9FA;
+  border: 2px dashed #D4AF37;
+  border-radius: 10px;
+  padding: 16px 24px;
+  max-width: 400px;
+  margin: 0 auto 28px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ref-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ref-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #0B132B;
+  letter-spacing: 1px;
+}
+
+.success-timeline-box {
+  background: #0B132B;
+  color: #FFFFFF;
+  border-radius: 10px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  margin-bottom: 30px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.timeline-item strong {
+  display: block;
+  font-size: 13.5px;
+  color: #D4AF37;
+}
+
+.timeline-item span {
+  font-size: 13.5px;
+  color: #E5E7EB;
+}
+
+.reset-enquiry-btn {
+  background-color: #F8F9FA;
+  border: 1.5px solid #0B132B;
+  color: #0B132B;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reset-enquiry-btn:hover {
+  background-color: #0B132B;
+  color: #D4AF37;
+}
+
+/* ==========================================================================
+   5. EMERGENCY STRIP AT BOTTOM
+   ========================================================================== */
+.contact-emergency-strip {
+  padding-top: 40px;
+}
+
+.emergency-box {
+  padding: 36px 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0B132B 0%, #1C2541 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 15px 35px rgba(11, 19, 43, 0.15);
+}
+
+.flex-row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.emergency-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.em-tag {
+  color: #D4AF37;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.emergency-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #FFFFFF;
+  margin: 0 0 10px 0;
+}
+
+.emergency-text p {
+  color: #E5E7EB;
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.hero-btn-gold {
+  background: #D4AF37;
+  color: #0B132B;
+  font-weight: 700;
+  padding: 15px 28px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.hero-btn-gold:hover {
+  background: #FFFFFF;
+  color: #0B132B;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE AUDIT & OVERRIDES
+   ========================================================================== */
+@media (max-width: 992px) {
+  .contact-main-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .contact-info-col {
+    order: 2;
+  }
+  
+  .form-card-col {
+    order: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .enquiry-form-card {
+    padding: 28px 20px;
+  }
+  
+  .contact-info-card,
+  .chamber-hours-box {
+    padding: 20px 16px;
+  }
+  
+  .form-fields-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .col-full {
+    grid-column: span 1;
+  }
+
+  .emergency-box {
+    padding: 28px 20px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .emergency-action {
+    width: 100%;
+  }
+
+  .hero-btn-gold {
+    width: 100%;
+    justify-content: center;
+  }
+}

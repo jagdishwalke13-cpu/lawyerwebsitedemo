@@ -1,0 +1,207 @@
+/* ==========================================================================
+   RAJ LAW ASSOCIATES - About Us Page Styling
+   ========================================================================== */
+
+.about-page-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--color-bg-alt);
+}
+
+/* STRICT 170px top padding guarantees ZERO OVERLAP with fixed navbar! */
+.about-header-banner {
+  background: linear-gradient(135deg, #0B132B 0%, #1C2541 100%);
+  padding: 170px 0 80px 0 !important;
+  border-bottom: 2px solid var(--color-primary-accent);
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .about-header-banner {
+    padding: 110px 0 50px 0 !important;
+  }
+}
+
+.about-page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  color: #FFFFFF;
+  margin: 10px 0 20px 0;
+}
+
+.about-page-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Welcome Section Split Layout */
+.welcome-split-section {
+  padding: 100px 0;
+  background-color: #FFFFFF;
+}
+
+.welcome-grid-split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  align-items: center;
+}
+
+.welcome-visual-left {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  height: auto;
+  overflow: visible !important;
+}
+
+.lawyer-image-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  height: auto;
+  overflow: visible !important;
+}
+
+/* Safety rule: contain guarantees the full portrait is shown without cutting any part of the image! */
+.lawyer-portrait-img {
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: 6px;
+  display: block;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 5;
+}
+
+.floating-gold-frame {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: -15px;
+  bottom: -15px;
+  border: 2px solid #D4AF37;
+  border-radius: 8px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.image-experience-badge {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  background: #0B132B;
+  color: #FFFFFF;
+  padding: 14px 24px;
+  border-radius: 6px;
+  border-left: 4px solid #D4AF37;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-years {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #D4AF37;
+}
+
+.exp-text {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.know-firm-tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #D4AF37;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.welcome-main-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  color: #0B132B;
+  margin-bottom: 20px;
+}
+
+.welcome-body-para {
+  font-size: 15.5px;
+  color: #4B5563;
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+.about-philosophy-section {
+  padding: 60px 0 100px 0;
+  background-color: #FFFFFF;
+}
+
+.philosophy-box {
+  padding: 4rem 3rem;
+  border: 2px solid #D4AF37;
+  border-radius: 8px;
+  background: #0B132B;
+}
+
+.philosophy-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: #FFFFFF;
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.4;
+}
+
+.philosophy-author {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .welcome-grid-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-split-section {
+    padding: 50px 0 !important;
+  }
+  .about-philosophy-section {
+    padding: 40px 0 60px 0 !important;
+  }
+  .philosophy-box {
+    padding: 2.5rem 1.25rem !important;
+  }
+  .floating-gold-frame {
+    display: none !important;
+  }
+  .image-experience-badge {
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 16px;
+  }
+  .exp-years {
+    font-size: 18px;
+  }
+}

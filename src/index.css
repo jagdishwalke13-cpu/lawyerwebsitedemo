@@ -1,0 +1,431 @@
+/* ==========================================================================
+   RAJ LAW ASSOCIATES - Global Design System & Typography
+   "The Million-Dollar Vibe" Corporate Law Firm UI/UX Architecture
+   ========================================================================== */
+
+:root {
+  /* 1. Global Color Palette */
+  --color-primary-dark: #0B132B;   /* Deep Authority Navy - Hero, Footers, Dark Overlays */
+  --color-primary-accent: #D4AF37; /* Metallic Rich Gold - Primary CTAs, Highlights, Active Links */
+  --color-secondary-accent: #1C2541; /* Lighter Navy - Secondary Dark Sections, Card BGs */
+  --color-bg-light: #FFFFFF;       /* Pure White - Alternating Content Sections */
+  --color-bg-alt: #F8F9FA;         /* Soft Pearl Grey - Alternating Content Sections */
+  --color-text-dark: #212529;      /* Charcoal - Body Text on Light Backgrounds */
+  --color-text-light: #FFFFFF;     /* White - Text on Dark Backgrounds */
+  --color-text-muted: #6C757D;     /* Muted Grey for subtle details */
+  --color-gold-hover: #E5C354;     /* Lighter Gold for subtle states */
+  --color-border-light: rgba(0, 0, 0, 0.08);
+  --color-border-dark: rgba(212, 175, 55, 0.2);
+
+  /* 2. Global Typography System */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-alt: 'Montserrat', sans-serif;
+
+  /* Spacing & Grid Variables */
+  --grid-gap: 24px;
+  --container-max-width: 1280px;
+  --section-padding-y-desktop: 100px;
+  --section-padding-y-mobile: 70px;
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-elevated: 0 10px 30px rgba(11, 19, 43, 0.15);
+  --shadow-gold: 0 6px 20px rgba(212, 175, 55, 0.25);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+/* ==========================================================================
+   CSS Reset & Base Styles
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* Desktop Base Size */
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px; /* Mobile Base Size */
+  }
+}
+
+body, #root {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Typography Styles (Playfair Display & Inter/Montserrat)
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--color-primary-dark);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(2rem, 7vw, 2.5rem) !important;
+    line-height: 1.25 !important;
+  }
+}
+
+h2 {
+  font-size: 2.75rem;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: clamp(1.65rem, 6vw, 2rem) !important;
+    line-height: 1.3 !important;
+  }
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  h3 {
+    font-size: clamp(1.35rem, 5vw, 1.6rem) !important;
+    line-height: 1.35 !important;
+  }
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Global Image Safety Rules to Prevent Cropping and Head Cutting */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Global safety rule for portraits and avatars: contain guarantees 100% of the image is shown without cutting or cropping! */
+.lawyer-portrait-img,
+.team-portrait-img,
+.scholar-portrait-img,
+.profile-img,
+.team-avatar-img {
+  object-fit: contain !important;
+  object-position: center !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* ==========================================================================
+   Global UI Components & Buttons
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-primary-accent);
+  color: var(--color-primary-dark);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  background-color: var(--color-gold-hover);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary-accent);
+  border: 2px solid var(--color-primary-accent);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-accent);
+  color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-outline-light {
+  background-color: transparent;
+  color: var(--color-text-light);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--color-text-light);
+  color: var(--color-primary-dark);
+  border-color: var(--color-text-light);
+}
+
+.luxury-card {
+  background-color: var(--color-bg-light);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid var(--color-border-light);
+  padding: 2.5rem;
+  transition: var(--transition-smooth);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.luxury-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-elevated);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.luxury-card-dark {
+  background-color: var(--color-secondary-accent);
+  color: var(--color-text-light);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  transition: var(--transition-smooth);
+}
+
+.luxury-card-dark:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.luxury-card-dark h1,
+.luxury-card-dark h2,
+.luxury-card-dark h3,
+.luxury-card-dark h4,
+.luxury-card-dark h5,
+.luxury-card-dark h6 {
+  color: var(--color-text-light);
+}
+
+/* ==========================================================================
+   Layout Spacing & Strict 12-Column Grid System
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gap);
+  width: 100%;
+}
+
+.col-span-12 { grid-column: span 12; }
+.col-span-8  { grid-column: span 8; }
+.col-span-6  { grid-column: span 6; }
+.col-span-4  { grid-column: span 4; }
+.col-span-3  { grid-column: span 3; }
+
+@media (max-width: 992px) {
+  .col-span-8, .col-span-6 { grid-column: span 12; }
+  .col-span-4 { grid-column: span 6; }
+  .col-span-3 { grid-column: span 6; }
+}
+
+@media (max-width: 768px) {
+  .col-span-8, .col-span-6, .col-span-4, .col-span-3 { grid-column: span 12 !important; }
+  .luxury-card, .luxury-card-dark { padding: 1.5rem !important; }
+}
+
+.section-padding {
+  padding-top: var(--section-padding-y-desktop);
+  padding-bottom: var(--section-padding-y-desktop);
+}
+
+.section-padding-top {
+  padding-top: var(--section-padding-y-desktop);
+}
+
+.section-padding-bottom {
+  padding-bottom: var(--section-padding-y-desktop);
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: var(--section-padding-y-mobile) !important;
+    padding-bottom: var(--section-padding-y-mobile) !important;
+  }
+  .section-padding-top {
+    padding-top: var(--section-padding-y-mobile) !important;
+  }
+  .section-padding-bottom {
+    padding-bottom: var(--section-padding-y-mobile) !important;
+  }
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    max-width: 100% !important;
+  }
+}
+
+.bg-light { background-color: var(--color-bg-light); }
+.bg-alt { background-color: var(--color-bg-alt); }
+.bg-navy { 
+  background-color: var(--color-primary-dark); 
+  color: var(--color-text-light);
+}
+.bg-navy h1, .bg-navy h2, .bg-navy h3, .bg-navy h4, .bg-navy h5, .bg-navy h6 {
+  color: var(--color-text-light);
+}
+
+/* ==========================================================================
+   Page Transitions & Typography Highlights
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.heading-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.heading-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-primary-accent);
+}
+
+.heading-underline-center {
+  position: relative;
+  display: inline-block;
+}
+
+.heading-underline-center::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 80px;
+  height: 3px;
+  background-color: var(--color-primary-accent);
+}
+
+.text-gold { color: var(--color-primary-accent) !important; }
+.text-navy { color: var(--color-primary-dark) !important; }
+.text-muted { color: var(--color-text-muted) !important; }
+
+/* Page Banner Header: STRICT 170px top padding guarantees NO OVERLAP with fixed navbar! */
+.page-banner {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-secondary-accent) 100%);
+  color: var(--color-text-light);
+  padding: 170px 0 70px !important;
+  border-bottom: 2px solid var(--color-primary-accent);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .page-banner {
+    padding: 110px 0 50px !important;
+  }
+}
+
+.page-banner::after {
+  content: '';
+  position: absolute;
+  right: -5%;
+  bottom: -30%;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}

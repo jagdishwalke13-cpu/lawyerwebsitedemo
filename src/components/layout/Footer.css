@@ -1,0 +1,279 @@
+/* ==========================================================================
+   RAJ LAW ASSOCIATES - SECTION 8: AUTHORITATIVE FOOTER STYLING
+   ========================================================================== */
+
+/* Deep Midnight Blue/Black (#060A17) Background with clean top border separation */
+.authoritative-footer {
+  background-color: #060A17;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Strictly 1px solid rgba(255,255,255,0.1) as requested */
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Simple Fade-In Animation when reached at bottom of page */
+.footer-fade-in-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.footer-fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 4 Evenly Spaced Columns Architecture */
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px 30px;
+  padding-bottom: 60px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Column 1: Brand Info & Monogram */
+.footer-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.footer-monogram {
+  width: 44px;
+  height: 44px;
+  border: 2px solid #D4AF37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0B132B 0%, #1C2541 100%);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+.footer-firm-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.footer-firm-tag {
+  font-size: 10px;
+  color: #D4AF37;
+  letter-spacing: 2px;
+  display: block;
+  margin-top: 2px;
+}
+
+.footer-brand-bio {
+  font-size: 13.5px;
+  color: #9CA3AF;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+.footer-accreditation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #D1D5DB;
+  line-height: 1.4;
+}
+
+/* Columns 2 & 3: Quick Links & Practice Domains */
+.footer-col-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  margin: 0 0 22px 0;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #D4AF37;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Optimized gap for 2.0 line-height */
+}
+
+/* Ensure line-height for links is 2.0 for a less cluttered look */
+.footer-link {
+  font-size: 14px;
+  color: #9CA3AF;
+  text-decoration: none;
+  line-height: 2.0; /* Strictly 2.0 line-height as requested */
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-link::before {
+  content: '›';
+  color: #D4AF37;
+  margin-right: 8px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.25s ease;
+}
+
+.footer-link:hover {
+  color: #D4AF37;
+  transform: translateX(4px);
+}
+
+.footer-link:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Column 4: Headquarters Address */
+.hq-details-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hq-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13.5px;
+  color: #9CA3AF;
+  line-height: 1.7;
+}
+
+.hq-info-row strong {
+  color: #FFFFFF;
+}
+
+.footer-contact-link {
+  color: #E5E7EB;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-link:hover {
+  color: #D4AF37;
+  text-decoration: underline;
+}
+
+/* Bottom Strip */
+.footer-bottom-strip {
+  background-color: #03060E;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 0;
+  font-size: 12.5px;
+  color: #6B7280;
+}
+
+.bottom-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.copyright-text strong {
+  color: #D4AF37;
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.legal-sublink {
+  color: #9CA3AF;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legal-sublink:hover {
+  color: #D4AF37;
+}
+
+.footer-sep {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.back-to-top-btn {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid #D4AF37;
+  color: #D4AF37;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.back-to-top-btn:hover {
+  background: #D4AF37;
+  color: #060A17;
+  transform: translateY(-3px);
+}
+
+/* Responsive Footer Architecture */
+@media (max-width: 1024px) {
+  .footer-main-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .bottom-strip-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .back-to-top-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}

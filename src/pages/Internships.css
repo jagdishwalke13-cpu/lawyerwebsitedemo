@@ -1,0 +1,524 @@
+/* ==========================================================================
+   RAJ LAW ASSOCIATES - Prompt 9: 'Careers & Internships' Landing & Form
+   ========================================================================== */
+
+.internship-page-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #F8F9FA;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 100px;
+}
+
+/* 1. Page Header & Inspiration Section */
+/* Deep Dark Navy (#0B132B) with subtle pattern, STRICT 170px top, 140px bottom for -50px overlap */
+.internship-header-section {
+  background: linear-gradient(135deg, rgba(11, 19, 43, 0.96) 0%, rgba(28, 37, 65, 0.96) 100%),
+              radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+  background-color: #0B132B;
+  padding: 170px 0 140px 0 !important;
+  border-bottom: 2px solid #D4AF37;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .internship-header-section {
+    padding: 110px 0 80px 0 !important;
+  }
+}
+
+.header-container-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Playfair Display, 3rem, Pure White (#FFFFFF) */
+.internship-page-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 4.5vw, 3.2rem);
+  color: #FFFFFF;
+  margin: 12px 0 16px 0;
+  line-height: 1.25;
+}
+
+/* Inter, 16px, Light Grey (#E5E7EB) */
+.internship-page-subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #E5E7EB;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 28px auto;
+}
+
+.internship-highlights-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.badge-item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(4px);
+}
+
+/* 2. The Internship Application Form Container */
+/* Negative top margin of -50px so it overlaps the navy background */
+.internship-form-section {
+  margin-top: -50px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Form Card: Solid White (#FFFFFF), 12px border-radius, prominent drop-shadow, max-width 800px, 40px padding */
+.internship-form-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.form-card-header {
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: #0B132B;
+  margin-bottom: 8px;
+}
+
+.form-subtitle {
+  font-size: 14px;
+  color: #6B7280;
+  margin: 0;
+}
+
+/* 3. Form Fields & Architecture (Multi-Step feel) */
+.internship-multi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.form-section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-header-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.section-step-num {
+  background: #0B132B;
+  color: #D4AF37;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 15px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #D4AF37;
+}
+
+.section-step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0B132B;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 2-column CSS Grid */
+.form-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 24px;
+}
+
+.form-grid-1col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.col-span-2-mobile {
+  grid-column: span 2;
+}
+
+/* 4. Form Styling & Submission (Material Design inputs) */
+.material-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.material-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #4B5563;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+/* Transparent background, no side/top borders, only 1px solid bottom-border */
+.material-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #E5E7EB;
+  background: transparent;
+  padding: 10px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #0B132B;
+  outline: none;
+  border-radius: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.material-input::placeholder {
+  color: #9CA3AF;
+  font-size: 14px;
+}
+
+/* Focus State: Animates to 2px Solid Gold (#D4AF37) on focus */
+.material-input:focus {
+  border-bottom: 2px solid #D4AF37;
+  box-shadow: 0 4px 6px -4px rgba(212, 175, 55, 0.35);
+}
+
+.material-group:focus-within .material-label {
+  color: #D4AF37;
+}
+
+.material-select {
+  cursor: pointer;
+}
+
+.material-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* Custom Drag-and-Drop Resume Upload Box */
+.resume-upload-wrapper {
+  margin-top: 10px;
+}
+
+/* Border: 2px dashed Light Grey (#E5E7EB), Background: Very light Pearl Grey (#F8F9FA) */
+.custom-drop-zone {
+  border: 2px dashed #E5E7EB;
+  background-color: #F8F9FA;
+  border-radius: 8px;
+  padding: 36px 24px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-drop-zone:hover,
+.custom-drop-zone.dragging-active {
+  border-color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.08);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+  transform: translateY(-2px);
+}
+
+.custom-drop-zone.file-selected {
+  border-style: solid;
+  border-color: #D4AF37;
+  background-color: #FFFFFF;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.cloud-icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+}
+
+.upload-bounce {
+  transition: transform 0.3s ease;
+}
+
+.custom-drop-zone:hover .upload-bounce {
+  transform: translateY(-4px);
+}
+
+/* Text: Click to Upload Resume/CV (PDF) */
+.upload-main-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0B132B;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.upload-sub-text {
+  font-size: 13px;
+  color: #6B7280;
+}
+
+/* Selected File Badge View */
+.selected-file-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-icon-gold {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #D4AF37;
+}
+
+.file-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name-strong {
+  font-weight: 700;
+  font-size: 16px;
+  color: #0B132B;
+}
+
+.file-size-sub {
+  font-size: 13px;
+  color: #10B981; /* Green ready text */
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.remove-file-btn {
+  background: transparent;
+  border: 1px solid #EF4444;
+  color: #EF4444;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 6px;
+}
+
+.remove-file-btn:hover {
+  background: #EF4444;
+  color: #FFFFFF;
+}
+
+/* Submit Button: Full-width Solid Gold button at bottom */
+.form-submit-row {
+  margin-top: 16px;
+}
+
+.submit-internship-gold-btn {
+  width: 100%;
+  background-color: #D4AF37; /* Solid Gold */
+  color: #0B132B; /* Dark Navy text */
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover state: scale 1.02, deepen shadow */
+.submit-internship-gold-btn:hover {
+  background-color: #C39D28;
+  color: #FFFFFF;
+  transform: scale(1.02); /* Scale 1.02 */
+  box-shadow: 0 16px 40px rgba(212, 175, 55, 0.55); /* Deepen shadow */
+}
+
+.submit-internship-gold-btn:disabled {
+  opacity: 0.85;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submission-disclaimer {
+  font-size: 12px;
+  color: #6B7280;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+/* 5. Inline Success Message State */
+.internship-success-view {
+  padding: 30px 20px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.success-icon-wrap {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+  border: 2px solid #D4AF37;
+}
+
+/* Text: Thank you! Your application has been received. */
+.success-main-heading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  color: #0B132B;
+  margin-bottom: 14px;
+}
+
+/* Text: Our team will contact you shortly. */
+.success-sub-text {
+  font-size: 16px;
+  color: #4B5563;
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 auto 32px auto;
+}
+
+.application-ref-box {
+  background: #F8F9FA;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 24px 30px;
+  max-width: 540px;
+  margin: 0 auto 28px auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ref-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14.5px;
+  color: #374151;
+  border-bottom: 1px dashed #E5E7EB;
+  padding-bottom: 8px;
+}
+
+.ref-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ref-row strong {
+  color: #0B132B;
+}
+
+.next-steps-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #0B132B;
+  margin-bottom: 36px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.submit-another-btn {
+  background: transparent;
+  border: 2px solid #0B132B;
+  color: #0B132B;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-another-btn:hover {
+  background: #0B132B;
+  color: #D4AF37;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .internship-form-card {
+    padding: 24px 16px;
+  }
+  .form-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .col-span-2-mobile,
+  .col-span-2 {
+    grid-column: span 1;
+  }
+  .custom-drop-zone {
+    padding: 24px 14px;
+  }
+  .form-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

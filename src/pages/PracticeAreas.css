@@ -1,0 +1,446 @@
+/* ==========================================================================
+   RAJ LAW ASSOCIATES - Practice Areas Page Styling & 4-Column Grid Architecture
+   ========================================================================== */
+
+.practice-page-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--color-bg-alt);
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 100px;
+}
+
+/* STRICT 170px top padding guarantees ZERO OVERLAP with fixed navbar! */
+.practice-page-header {
+  background: linear-gradient(135deg, #0B132B 0%, #1C2541 100%);
+  padding: 170px 0 80px 0 !important;
+  border-bottom: 2px solid var(--color-primary-accent);
+  position: relative;
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .practice-page-header {
+    padding: 110px 0 50px 0 !important;
+  }
+  .practice-grid-section {
+    padding: 50px 0 !important;
+  }
+  .practice-domain-focus {
+    padding: 50px 0 !important;
+  }
+}
+
+.practice-page-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  color: #FFFFFF;
+  margin: 10px 0 20px 0;
+}
+
+.practice-page-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   INTERACTIVE GRID SECTION & CATEGORY TAB BAR
+   ========================================================================== */
+.practice-interactive-section {
+  padding: 80px 0 100px 0;
+  background-color: #F8F9FA; /* Soft Pearl Grey */
+}
+
+.practice-what-we-do-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #D4AF37;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.practice-main-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  color: #0B132B;
+  margin: 0 0 16px 0;
+}
+
+.practice-header-desc {
+  font-size: 16px;
+  color: #4B5563;
+  line-height: 1.7;
+  max-width: 680px;
+  margin: 0 auto 40px auto;
+}
+
+/* Category Filter Bar */
+.practice-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.practice-filter-btn {
+  background-color: #FFFFFF;
+  color: #0B132B;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 1.5px solid #D4AF37;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.practice-filter-btn:hover {
+  background-color: rgba(212, 175, 55, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+}
+
+.practice-filter-btn.active {
+  background-color: #0B132B;
+  color: #D4AF37;
+  border-color: #0B132B;
+  box-shadow: 0 8px 25px rgba(11, 19, 43, 0.35);
+}
+
+/* RESPONSIVE CSS GRID ARCHITECTURE (Fixing the vertical stacking bug) */
+.practice-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 Columns on XL desktop */
+  gap: 28px;
+  width: 100%;
+}
+
+.practice-interactive-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 420px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background-color: #1C2541;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.card-bg-visual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.practice-interactive-card:hover .card-bg-visual,
+.practice-interactive-card.active-card .card-bg-visual {
+  transform: scale(1.1);
+}
+
+.card-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(11, 19, 43, 0.98) 0%, rgba(11, 19, 43, 0.82) 45%, rgba(11, 19, 43, 0.35) 100%);
+  transition: background 0.4s ease;
+  z-index: 2;
+}
+
+.practice-interactive-card:hover .card-gradient-overlay,
+.practice-interactive-card.active-card .card-gradient-overlay {
+  background: linear-gradient(to top, rgba(11, 19, 43, 0.99) 0%, rgba(11, 19, 43, 0.90) 55%, rgba(11, 19, 43, 0.5) 100%);
+}
+
+.card-content-block {
+  position: relative;
+  z-index: 5;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  color: #FFFFFF;
+}
+
+.card-cat-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(212, 175, 55, 0.18);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #D4AF37;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.card-service-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #FFFFFF;
+  margin: 0 0 10px 0;
+  line-height: 1.25;
+}
+
+.card-service-snippet {
+  font-size: 13.5px;
+  color: #D1D5DB;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  opacity: 0.9;
+}
+
+.card-learn-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.learn-arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.practice-interactive-card:hover .learn-arrow-icon,
+.practice-interactive-card.active-card .learn-arrow-icon {
+  transform: translateX(6px);
+}
+
+.card-bottom-gold-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0px;
+  background-color: #D4AF37;
+  z-index: 10;
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.practice-interactive-card:hover .card-bottom-gold-border,
+.practice-interactive-card.active-card .card-bottom-gold-border {
+  height: 5px;
+}
+
+.practice-interactive-card.active-card {
+  border: 2px solid #D4AF37;
+  box-shadow: 0 20px 45px rgba(212, 175, 55, 0.3);
+  transform: translateY(-6px);
+}
+
+/* ==========================================================================
+   DOMAIN IN-DEPTH FOCUS SECTION
+   ========================================================================== */
+.practice-domain-focus {
+  padding: 80px 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.domain-focus-box {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 50px;
+  align-items: center;
+  background: #F8F9FA;
+  border: 1.5px solid #D4AF37;
+  border-radius: 10px;
+  padding: 3.5rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.06);
+}
+
+.domain-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #D4AF37;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.domain-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  color: #0B132B;
+  margin-bottom: 20px;
+}
+
+.domain-detail-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.08rem;
+  color: #4B5563;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.domain-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.statute-box {
+  background: #0B132B;
+  border-radius: 8px;
+  padding: 2.5rem;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #FFFFFF;
+  box-shadow: 0 15px 35px rgba(11, 19, 43, 0.2);
+}
+
+.statute-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.statute-header h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.statute-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.statute-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #D1D5DB;
+}
+
+/* Consultation Banner */
+.practice-consult-banner {
+  padding: 40px 0 80px 0;
+  background-color: #FFFFFF;
+}
+
+.bottom-cta-box {
+  background: linear-gradient(135deg, #0B132B 0%, #1C2541 100%);
+  border: 1px solid #D4AF37;
+  border-radius: 10px;
+  padding: 3rem 2.5rem;
+  color: #FFFFFF;
+  box-shadow: 0 15px 40px rgba(11, 19, 43, 0.25);
+}
+
+.cta-box-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.cta-box-content p {
+  font-size: 1.1rem;
+  color: #D1D5DB;
+  max-width: 620px;
+  margin: 0 auto 28px auto;
+  line-height: 1.6;
+}
+
+.cta-buttons-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS FOR PRACTICE GRID
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .practice-cards-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns on desktop */
+  }
+}
+
+@media (max-width: 992px) {
+  .practice-cards-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns on tablet */
+    gap: 24px;
+  }
+  .domain-focus-box {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .practice-cards-grid {
+    grid-template-columns: 1fr; /* 1 Column on mobile */
+    gap: 20px;
+  }
+  .practice-interactive-card {
+    height: 380px;
+  }
+  .domain-focus-box {
+    padding: 1.5rem 1.25rem !important;
+  }
+  .statute-box {
+    padding: 1.5rem 1.25rem !important;
+  }
+  .cta-buttons-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .practice-filter-bar {
+    gap: 8px;
+  }
+  .practice-filter-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}

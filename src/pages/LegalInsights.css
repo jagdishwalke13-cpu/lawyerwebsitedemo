@@ -1,0 +1,589 @@
+/* ==========================================================================
+   RAJ LAW ASSOCIATES - Prompt 7: 'Legal Insights' Social-Feed Style Timeline
+   ========================================================================== */
+
+/* 1. Page Container & Layout Strategy */
+.insights-feed-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F0F2F5; /* Soft, cool Light Grey */
+  padding: 170px 0 100px 0 !important;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .insights-feed-wrapper {
+    padding: 110px 0 50px 0 !important;
+  }
+}
+
+/* Centered, single-column layout with max-width 680px */
+.feed-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Page Header */
+.feed-page-header {
+  margin-bottom: 32px;
+}
+
+.feed-main-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  color: #0B132B; /* Dark Navy */
+  margin-bottom: 12px;
+}
+
+.feed-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #4B5563; /* Charcoal Grey */
+  line-height: 1.6;
+  max-width: 540px;
+  margin: 0 auto 24px auto;
+}
+
+/* Filter Bar with small pill-shaped buttons */
+.feed-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-pill-btn {
+  background-color: #FFFFFF;
+  color: #4B5563;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: 1px solid #E5E7EB;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.filter-pill-btn:hover {
+  border-color: #D4AF37;
+  color: #0B132B;
+  transform: translateY(-2px);
+}
+
+.filter-pill-btn.active {
+  background-color: #0B132B; /* Dark Navy */
+  color: #FFFFFF;
+  border-color: #0B132B;
+  box-shadow: 0 4px 12px rgba(11, 19, 43, 0.25);
+}
+
+/* 2. Content Card Design (The 'Feed Post' Component) */
+.feed-posts-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space each card vertically with 20px gap */
+}
+
+/* Card Base: Pure White (#FFFFFF), border-radius 12px, soft box-shadow, padding 24px */
+.feed-post-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.feed-post-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+}
+
+/* Top Bar (Context) */
+.post-top-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.author-context {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #D4AF37; /* Gold border */
+}
+
+.author-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.author-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: #0B132B;
+}
+
+.author-verified-badge {
+  color: #D4AF37;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.author-role {
+  font-size: 12px;
+  color: #6B7280;
+  margin-top: 2px;
+}
+
+.post-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.post-category-tag {
+  background-color: rgba(212, 175, 55, 0.12);
+  color: #0B132B;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Three dots options icon in top right corner */
+.options-dropdown-wrap {
+  position: relative;
+}
+
+.options-icon-btn {
+  background: transparent;
+  border: none;
+  color: #6B7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.options-icon-btn:hover {
+  background-color: #F3F4F6;
+  color: #0B132B;
+}
+
+.options-menu-popup {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 6px 0;
+  width: 150px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.options-menu-popup button {
+  background: transparent;
+  border: none;
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 13px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.options-menu-popup button:hover {
+  background-color: #F8F9FA;
+  color: #0B132B;
+}
+
+/* Post Title: Playfair Display, Bold, 1.3rem, Dark Navy (#0B132B) */
+.post-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #0B132B;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+/* Post Snippet: Inter, Regular, 15px, line-height 1.6, Charcoal Grey (#4B5563) */
+.snippet-para {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4B5563; /* Charcoal Grey */
+  margin-bottom: 0;
+}
+
+/* Expand Action: bold Gold (#D4AF37) text link '... More' */
+.expand-more-link {
+  font-weight: 700;
+  color: #D4AF37; /* Gold */
+  cursor: pointer;
+  display: inline;
+  transition: color 0.2s ease;
+}
+
+.expand-more-link:hover {
+  color: #0B132B;
+  text-decoration: underline;
+}
+
+.expanded-article-content {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed #E5E7EB;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.full-para {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 14px;
+}
+
+.expand-less-link {
+  font-weight: 700;
+  font-size: 14px;
+  color: #D4AF37;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.expand-less-link:hover {
+  color: #0B132B;
+}
+
+/* Optional Image Attachment in feed post */
+.post-image-attachment {
+  margin-top: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #E5E7EB;
+  max-height: 320px;
+}
+
+.post-image-attachment img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Engagement Stats Bar */
+.post-stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #6B7280;
+}
+
+.stat-likes-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.stat-comments-count {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.stat-comments-count:hover {
+  color: #0B132B;
+  text-decoration: underline;
+}
+
+/* 3. Interactive Engagement Footer */
+/* Divider: faint 1px solid line (#E5E7EB) separating text from action icons */
+.post-divider {
+  margin: 14px 0 12px 0;
+  border-top: 1px solid #E5E7EB;
+}
+
+/* Action Bar: Horizontal flexbox row containing three outline vector icons */
+.post-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* Action buttons */
+.action-btn {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: #6B7280; /* Outline grey by default */
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex: 1;
+}
+
+/* Hover States: Smoothly fill with Gold accent color (#D4AF37) */
+.action-btn:hover {
+  background-color: rgba(212, 175, 55, 0.08);
+  color: #D4AF37; /* Gold */
+}
+
+.action-btn:hover .action-svg-icon {
+  color: #D4AF37;
+  transform: scale(1.15) rotate(-5deg);
+  fill: #D4AF37; /* Fill the vector icon smoothly */
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.action-btn.liked-active {
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+.action-btn.liked-active .action-svg-icon {
+  color: #D4AF37;
+  fill: #D4AF37;
+  transform: scale(1.1);
+}
+
+.action-btn.comment-active {
+  color: #0B132B;
+  background-color: rgba(11, 19, 43, 0.06);
+}
+
+/* Interactive Comments Section */
+.post-comments-section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #F3F4F6;
+  background: #F8F9FA;
+  border-radius: 8px;
+  padding: 16px;
+  animation: fadeIn 0.3s ease;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.no-comments-text {
+  font-size: 13px;
+  color: #9CA3AF;
+  text-align: center;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.comment-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0B132B;
+  color: #D4AF37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.comment-bubble {
+  background: #FFFFFF;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  flex-grow: 1;
+}
+
+.comment-author {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0B132B;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.comment-text {
+  font-size: 13.5px;
+  color: #374151;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.add-comment-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comment-input {
+  flex-grow: 1;
+  padding: 10px 14px;
+  border-radius: 50px;
+  border: 1px solid #D1D5DB;
+  font-size: 13.5px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.comment-input:focus {
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.15);
+}
+
+.comment-submit-btn {
+  background: #0B132B;
+  color: #D4AF37;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.comment-submit-btn:hover {
+  background: #D4AF37;
+  color: #0B132B;
+  transform: scale(1.05);
+}
+
+/* 4. End of Feed Component */
+.end-of-feed-box {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.end-check-circle {
+  color: #4B5563; /* Sleek dark checkmark */
+  display: flex;
+  align-items: center;
+}
+
+.end-feed-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #6B7280; /* Grey */
+  font-weight: 600;
+}
+
+/* Toast Notification */
+.feed-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #0B132B;
+  color: #FFFFFF;
+  border: 1px solid #D4AF37;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 100;
+  animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .feed-container {
+    padding: 0 10px !important;
+  }
+  .feed-post-card {
+    padding: 18px 14px;
+    border-radius: 8px;
+  }
+  .post-title {
+    font-size: 1.15rem;
+  }
+  .post-actions-bar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .action-btn {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+  .feed-toast {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+}
