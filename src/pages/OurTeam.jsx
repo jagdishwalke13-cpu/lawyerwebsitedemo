@@ -8,7 +8,7 @@ const OurTeam = () => {
       role: "Founder & Managing Partner",
       specialty: "Supreme Court Practice & Constitutional Law",
       experience: "25+ Years Exp.",
-      image: "/lawyer-portrait.png",
+      image: "/adv-rajesh-jaiswal.png",
       bio: "Senior Standing Counsel with landmark triumphs before the Supreme Court of India and High Courts in constitutional, corporate tax, and appellate litigation."
     },
     {

@@ -30,7 +30,7 @@ const scholarsData = [
     batch: '2025 Batch',
     cycle: 'Summer Batch 2025',
     university: 'National Law School of India University (NLSIU), Bangalore',
-    image: '/lawyer-portrait.png',
+    image: '/adv-rajesh-jaiswal.png',
     testimonial: 'Working on complex corporate M&A structuring and NCLT shareholder disputes was the defining highlight of my law school journey.',
     heightClass: 'card-extra-tall'
   },
@@ -60,7 +60,7 @@ const scholarsData = [
     batch: '2024 Batch',
     cycle: 'Summer Batch 2024',
     university: 'Faculty of Law, Delhi University (DU)',
-    image: '/lawyer-portrait.png',
+    image: '/adv-rajesh-jaiswal.png',
     testimonial: 'The level of statutory precision and courtroom ethics practiced at Raj Law Associates set the gold standard for my legal career.',
     heightClass: 'card-tall'
   },

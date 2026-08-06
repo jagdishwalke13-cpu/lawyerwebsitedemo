@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Award, Shield, Scale, ArrowRight, CheckCircle2, Users, Briefcase, BookOpen, Clock, Phone, Building, ChevronRight, FileText, GraduationCap, Calendar, Upload, Check, Lock, Building2, UserCheck, X } from 'lucide-react';
+import { Award, Shield, Scale, ArrowRight, CheckCircle2, Users, Briefcase, BookOpen, Clock, Phone, Building, ChevronRight, FileText, GraduationCap, Calendar, Upload, Check, ShieldCheck, Lock, Building2, UserCheck, X, PlayCircle, Gavel } from 'lucide-react';
 import './Home.css';
 
 // Reusable IntersectionObserver component for scroll animations
@@ -70,51 +70,63 @@ const Home = () => {
 
   const practiceAreasData = [
     {
-      title: "Commercial Litigation & Supreme Court",
-      desc: "Commanding trial and appellate advocacy before the Supreme Court, High Courts, and specialized commercial tribunals.",
-      bgImage: "/practice-litigation.png",
-      link: "/practice-areas"
-    },
-    {
-      title: "Corporate Law, M&A & Joint Ventures",
-      desc: "Strategic restructuring, cross-border M&A transactions, regulatory compliance, and governance for Fortune 500 enterprises.",
-      bgImage: "/practice-corporate.png",
-      link: "/practice-areas"
-    },
-    {
-      title: "White-Collar Crime & PMLA Defense",
-      desc: "Formidable defense in economic offenses, Enforcement Directorate (ED), CBI, and fraud regulatory investigations.",
-      bgImage: "/practice-cyber.png",
-      link: "/practice-areas"
-    },
-    {
-      title: "Real Estate, Property & RERA Disputes",
-      desc: "High-value land acquisitions, infrastructure development contracts, title verification, and complex RERA litigation.",
+      title: "Family Court Matters",
+      desc: "Expert legal assistance in family court cases, navigating sensitive issues such as divorce, maintenance, child custody, and alimony.",
       bgImage: "/practice-property.png",
       link: "/practice-areas"
     },
     {
-      title: "Cyber Law, IT & Financial Fraud",
-      desc: "Cutting-edge representation in cyber banking fraud, digital asset disputes, and data privacy DPDP compliance.",
-      bgImage: "/practice-cyber.png",
-      link: "/practice-areas"
-    },
-    {
-      title: "Constitutional Law & Writs",
-      desc: "Protecting fundamental rights and civil liberties through Article 32 and Article 226 High Court writ petitions.",
+      title: "District Court Matters",
+      desc: "Handling a wide range of civil and criminal disputes at the district court level with strong advocacy.",
       bgImage: "/practice-litigation.png",
       link: "/practice-areas"
     },
     {
-      title: "Insolvency & Bankruptcy (IBC / NCLT)",
-      desc: "Specialized counsel for corporate debtors, creditors, and resolution professionals before NCLT and NCLAT benches.",
+      title: "Bails, Criminal Trials",
+      desc: "Expert assistance in securing bail and providing dedicated legal defense throughout criminal trials.",
+      bgImage: "/practice-cyber.png",
+      link: "/practice-areas"
+    },
+    {
+      title: "High Court Matters",
+      desc: "Representation in complex civil and criminal cases before the High Court, including writ petitions challenging government actions.",
+      bgImage: "/practice-litigation.png",
+      link: "/practice-areas"
+    },
+    {
+      title: "Documentation",
+      desc: "Preparation, verification, and notarization of all essential legal documents ensuring clear and lawful transactions.",
+      bgImage: "/practice-property.png",
+      link: "/practice-areas"
+    },
+    {
+      title: "Co-operative matters & Appellate Matters",
+      desc: "Legal services for cooperative society disputes and appeals, backed by extensive experience with over 200 societies.",
       bgImage: "/practice-corporate.png",
       link: "/practice-areas"
     },
     {
-      title: "Family, Succession & Matrimonial Law",
-      desc: "Discreet and dignified resolution of high-net-worth estate inheritance, divorce settlements, and asset partitioning.",
+      title: "DRT (Debt Recovery Tribunal) Matters",
+      desc: "Representation in recovery disputes before the Debt Recovery Tribunal for speedy resolution of financial claims.",
+      bgImage: "/practice-corporate.png",
+      link: "/practice-areas"
+    },
+    {
+      title: "MAT (Maharashtra Administrative Tribunal Cases)",
+      desc: "Handling service and employment-related disputes before the Maharashtra Administrative Tribunal.",
+      bgImage: "/practice-litigation.png",
+      link: "/practice-areas"
+    },
+    {
+      title: "Consumer Matters",
+      desc: "Helping consumers assert their rights and pursue grievances through consumer forums and appellate authorities.",
       bgImage: "/practice-property.png",
+      link: "/practice-areas"
+    },
+    {
+      title: "IPR Matters (Intellectual Property Rights)",
+      desc: "Helping businesses with acquisitions and mergers, trademarks, copyrights and patents.",
+      bgImage: "/practice-cyber.png",
       link: "/practice-areas"
     }
   ];
@@ -125,7 +137,7 @@ const Home = () => {
       role: "Founder & Senior Standing Counsel",
       specialty: "Supreme Court Practice & Constitutional Law",
       exp: "36+ Years Exp.",
-      image: "/lawyer-portrait.png"
+      image: "/adv-rajesh-jaiswal.png"
     },
     {
       name: "Adv. Meenakshi Sundaram",
@@ -176,42 +188,86 @@ const Home = () => {
         <div className="container hero-container-relative">
           <div className="hero-content-left">
             <div className="hero-badge slide-in-on-load delay-load-1">
-              <Award size={16} className="text-gold" />
-              <span>Supreme Court & High Court Advocates • Central India HQ</span>
+              <span className="text-gold">Defending Rights. Delivering Justice.</span>
+              <div className="hero-badge-line"></div>
             </div>
 
             <h1 className="hero-headline slide-in-on-load delay-load-2">
-              Professional and Reliable Legal Services in Central India
+              Your Legal Rights,<br />
+              <span className="text-gold">Our</span> Legal Commitment.
             </h1>
 
             <p className="hero-subheadline slide-in-on-load delay-load-3">
-              Representing corporate conglomerates, financial institutions, and private clients with commanding courtroom advocacy, uncompromising ethics, and strategic counsel.
+              We are committed to providing exceptional legal services with integrity, dedication and results.
             </p>
 
             <div className="hero-cta-group slide-in-on-load delay-load-4">
               <button onClick={triggerConsultationModal} className="btn hero-btn-gold">
-                <span>Request Consultation</span>
+                <span>Consult an Attorney</span>
                 <ArrowRight size={18} />
               </button>
-              <Link to="/practice-areas" className="btn hero-btn-outline">
-                <span>Explore Practice Areas</span>
-              </Link>
+              <button className="btn hero-btn-outline-play">
+                <PlayCircle size={20} />
+                <span>Watch Intro</span>
+              </button>
             </div>
 
-            <div className="hero-trust-metrics slide-in-on-load delay-load-5">
-              <div className="metric-item">
-                <span className="metric-val">36+</span>
-                <span className="metric-label">Years of Excellence</span>
+            <div className="hero-mini-features slide-in-on-load delay-load-5">
+              <div className="mini-feature">
+                <ShieldCheck size={28} className="text-gold" />
+                <div className="mini-text">
+                  <span>Trusted</span>
+                  <span>Legal Experts</span>
+                </div>
               </div>
-              <div className="metric-sep">|</div>
-              <div className="metric-item">
-                <span className="metric-val">100%</span>
-                <span className="metric-label">Confidential Counsel</span>
+              <div className="mini-feature">
+                <Users size={28} className="text-gold" />
+                <div className="mini-text">
+                  <span>Client-Focused</span>
+                  <span>Approach</span>
+                </div>
               </div>
-              <div className="metric-sep">|</div>
-              <div className="metric-item">
-                <span className="metric-val">Supreme Court</span>
-                <span className="metric-label">Appellate Practice</span>
+              <div className="mini-feature">
+                <Gavel size={28} className="text-gold" />
+                <div className="mini-text">
+                  <span>Proven Results</span>
+                  <span>in Every Case</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Bottom Stats Bar within Hero */}
+          <div className="hero-stats-bar slide-in-on-load delay-load-6">
+            <div className="stat-item">
+              <Users size={36} className="text-gold stat-icon" />
+              <div className="stat-text">
+                <span className="stat-number">10+</span>
+                <span className="stat-label">Years of Experience</span>
+              </div>
+            </div>
+            <div className="stat-separator"></div>
+            <div className="stat-item">
+              <Briefcase size={36} className="text-gold stat-icon" />
+              <div className="stat-text">
+                <span className="stat-number">1500+</span>
+                <span className="stat-label">Cases Solved</span>
+              </div>
+            </div>
+            <div className="stat-separator"></div>
+            <div className="stat-item">
+              <Scale size={36} className="text-gold stat-icon" />
+              <div className="stat-text">
+                <span className="stat-number">98%</span>
+                <span className="stat-label">Client Satisfaction</span>
+              </div>
+            </div>
+            <div className="stat-separator"></div>
+            <div className="stat-item">
+              <Award size={36} className="text-gold stat-icon" />
+              <div className="stat-text">
+                <span className="stat-number">24/7</span>
+                <span className="stat-label">Legal Support</span>
               </div>
             </div>
           </div>
@@ -222,43 +278,43 @@ const Home = () => {
       <div className="floating-cards-wrapper">
         <div className="container">
           <div className="trust-cards-grid">
-            {/* Card 1 */}
+            {/* Card 1: Notary */}
             <ScrollAnimate animation="fade-up" delay="0s" className="trust-card-col">
               <div className="trust-card-million">
                 <div className="trust-icon-badge">
-                  <Scale size={28} className="text-gold" />
+                  <FileText size={28} className="text-gold" />
                 </div>
-                <h3 className="trust-card-title">Expert Legal Advice</h3>
+                <h3 className="trust-card-title">Notary Services</h3>
                 <p className="trust-card-desc">
-                  Seasoned constitutional and trial advocates providing authoritative statutory analysis and litigation defense before India's highest courts.
+                  Our licensed professional notary public services are here to make life easier. Once your documents are notarised, we will help you make any necessary copies and ship them where they need to go.
                 </p>
                 <div className="trust-hover-line"></div>
               </div>
             </ScrollAnimate>
 
-            {/* Card 2 */}
+            {/* Card 2: Affidavit */}
             <ScrollAnimate animation="fade-up" delay="0.2s" className="trust-card-col">
               <div className="trust-card-million">
                 <div className="trust-icon-badge">
-                  <Users size={28} className="text-gold" />
+                  <Check size={28} className="text-gold" />
                 </div>
-                <h3 className="trust-card-title">Client-Centric Approach</h3>
+                <h3 className="trust-card-title">Affidavit Service</h3>
                 <p className="trust-card-desc">
-                  Tailored legal strategies designed around corporate objectives, safeguarding reputation, assets, and operational continuity with zero compromise.
+                  An Affidavit of service also known as a Proof of Service. This affidavit is a notarised testimony signed by the server that details the manner of service, identity of the person served and other details of the job.
                 </p>
                 <div className="trust-hover-line"></div>
               </div>
             </ScrollAnimate>
 
-            {/* Card 3 */}
+            {/* Card 3: Attestation */}
             <ScrollAnimate animation="fade-up" delay="0.4s" className="trust-card-col">
               <div className="trust-card-million">
                 <div className="trust-icon-badge">
-                  <Shield size={28} className="text-gold" />
+                  <ShieldCheck size={28} className="text-gold" />
                 </div>
-                <h3 className="trust-card-title">Actionable Solutions</h3>
+                <h3 className="trust-card-title">Attestation</h3>
                 <p className="trust-card-desc">
-                  We deliver swift, pragmatic dispute resolution, interim injunctions, and corporate restructuring that yield quantifiable commercial victories.
+                  Attestation is the act of showing or evidence confirming that something is genuine. e.g. A letter of recommendation or a stamp and signature of a competent person on the certificate or document.
                 </p>
                 <div className="trust-hover-line"></div>
               </div>
@@ -277,7 +333,7 @@ const Home = () => {
             <ScrollAnimate animation="slide-left" className="about-visual-left">
               <div className="portrait-frame-container">
                 <img 
-                  src="/lawyer-portrait.png" 
+                  src="/adv-rajesh-jaiswal.png" 
                   alt="Senior Partner Adv. Rajesh Jaiswal in Nagpur Chambers" 
                   className="lawyer-portrait-img"
                 />
@@ -399,10 +455,10 @@ const Home = () => {
       <section className="practice-grid-section">
         <div className="container">
           <ScrollAnimate animation="fade-up" className="text-center section-header-centered">
-            <span className="section-tag text-gold">What We Do</span>
-            <h2 className="section-title-light">Our Practice Areas</h2>
+            <span className="section-tag text-gold">Domain Expertise</span>
+            <h2 className="section-title-light">Our Services</h2>
             <p className="section-subtitle-light">
-              Comprehensive institutional legal counsel spanning commercial litigation, corporate governance, and criminal defense.
+              Comprehensive legal counsel spanning Family, District & High Courts, Debt Recovery, Consumer Rights, and Intellectual Property.
             </p>
           </ScrollAnimate>
 

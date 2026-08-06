@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Globe, Phone, Mail, Menu, X, ChevronDown, Shield, CheckCircle2, Download, FileText, Award, Scale } from 'lucide-react';
+import { Globe, Phone, Mail, Menu, X, ChevronDown, Shield, CheckCircle2, Download, FileText, Award, Scale, MessageSquare, PhoneCall } from 'lucide-react';
 import './Navbar.css';
 
 // Minimalist Gold Social SVGs for guaranteed pixel-perfect rendering
@@ -37,6 +37,7 @@ const Navbar = () => {
   const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState('EN');
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
+  const [contactMode, setContactMode] = useState('form');
   const [downloadsModalOpen, setDownloadsModalOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [downloadToast, setDownloadToast] = useState(null);
@@ -432,61 +433,106 @@ const Navbar = () => {
               </div>
             ) : (
               <>
-                <div className="modal-header">
-                  <span className="modal-tag">Confidential Attorney Consultation</span>
-                  <h3 className="modal-title">Schedule Legal Consultation</h3>
-                  <p className="modal-subtitle">
-                    Connect directly with our Senior Partners. All communications are protected under strict attorney-client privilege.
-                  </p>
+                <div className="modal-header text-center">
+                  <h3 className="modal-title">How would you like to connect?</h3>
+                  <p className="modal-subtitle mb-0">Select your preferred method of communication</p>
                 </div>
 
-                <form onSubmit={handleEnquirySubmit} className="enquiry-form">
-                  <div className="form-group">
-                    <label htmlFor="modal-name">Full Name *</label>
-                    <input type="text" id="modal-name" required placeholder="Adv. / Mr. / Ms. Full Name" className="form-input" />
-                  </div>
+                <div className="contact-mode-tabs">
+                  <button 
+                    className={`mode-tab ${contactMode === 'form' ? 'active' : ''}`}
+                    onClick={() => setContactMode('form')}
+                  >
+                    <FileText size={18} />
+                    <span>Enquiry Form</span>
+                  </button>
+                  <button 
+                    className={`mode-tab whatsapp ${contactMode === 'whatsapp' ? 'active' : ''}`}
+                    onClick={() => setContactMode('whatsapp')}
+                  >
+                    <MessageSquare size={18} />
+                    <span>WhatsApp</span>
+                  </button>
+                  <button 
+                    className={`mode-tab call ${contactMode === 'call' ? 'active' : ''}`}
+                    onClick={() => setContactMode('call')}
+                  >
+                    <PhoneCall size={18} />
+                    <span>Direct Call</span>
+                  </button>
+                </div>
 
-                  <div className="form-row-2">
+                {contactMode === 'form' && (
+                  <form onSubmit={handleEnquirySubmit} className="enquiry-form mt-4">
                     <div className="form-group">
-                      <label htmlFor="modal-phone">Phone Number *</label>
-                      <input type="tel" id="modal-phone" required placeholder="+91 98765 43210" className="form-input" />
+                      <label htmlFor="modal-name">Full Name *</label>
+                      <input type="text" id="modal-name" required placeholder="Adv. / Mr. / Ms. Full Name" className="form-input" />
                     </div>
+
+                    <div className="form-row-2">
+                      <div className="form-group">
+                        <label htmlFor="modal-phone">Phone Number *</label>
+                        <input type="tel" id="modal-phone" required placeholder="+91 98765 43210" className="form-input" />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="modal-email">Email Address</label>
+                        <input type="email" id="modal-email" placeholder="client@domain.com" className="form-input" />
+                      </div>
+                    </div>
+
                     <div className="form-group">
-                      <label htmlFor="modal-email">Email Address</label>
-                      <input type="email" id="modal-email" placeholder="client@domain.com" className="form-input" />
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="modal-domain">Legal Practice Area *</label>
-                    <select id="modal-domain" required className="form-input form-select">
-                      <option value="Commercial Litigation">Commercial Litigation & Supreme Court Appeals</option>
-                      <option value="Corporate Law & M&A">Corporate Law, M&A & Joint Ventures</option>
-                      <option value="White Collar Defense">White Collar Defense & PMLA Investigations</option>
-                      <option value="Bail & Criminal Defense">Bail Matters & Criminal Defense</option>
-                      <option value="Real Estate & RERA">Real Estate, Property & RERA Disputes</option>
-                      <option value="Cyber Fraud & IT Law">Cyber Fraud, Banking & IT Law</option>
-                      <option value="Family & Matrimonial">Family & Matrimonial Disputes</option>
-                      <option value="Other Legal Matter">Other Legal Advisory / General Counsel</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="modal-summary">Brief Summary of Legal Dispute *</label>
-                    <textarea id="modal-summary" rows={3} required placeholder="Please provide key facts, court jurisdiction, or urgency of relief required..." className="form-input form-textarea"></textarea>
-                  </div>
-
-                  <div className="form-footer">
-                    <div className="privacy-disclaimer">
-                      <Shield size={15} className="text-gold flex-shrink-0" />
-                      <span>Your information is 100% secure and confidential. We never share client details with third parties.</span>
+                      <label htmlFor="modal-domain">Legal Practice Area *</label>
+                      <select id="modal-domain" required className="form-input form-select">
+                        <option value="Notary Services">Notary Services</option>
+                        <option value="Affidavit Service">Affidavit Service (Proof of Service)</option>
+                        <option value="Attestation">Attestation & Document Verification</option>
+                        <option value="Other Legal Matter">Other Legal Advisory / General Counsel</option>
+                      </select>
                     </div>
 
-                    <button type="submit" className="btn submit-gold-btn w-full">
-                      <span>Transmit Enquiry to Partner</span>
-                    </button>
+                    <div className="form-group">
+                      <label htmlFor="modal-summary">Brief Summary of Legal Dispute *</label>
+                      <textarea id="modal-summary" rows={3} required placeholder="Please provide key facts, court jurisdiction, or urgency of relief required..." className="form-input form-textarea"></textarea>
+                    </div>
+
+                    <div className="form-footer">
+                      <div className="privacy-disclaimer">
+                        <Shield size={15} className="text-gold flex-shrink-0" />
+                        <span>Your information is 100% secure and confidential. We never share client details with third parties.</span>
+                      </div>
+
+                      <button type="submit" className="btn submit-gold-btn w-full">
+                        <span>Transmit Enquiry to Partner</span>
+                      </button>
+                    </div>
+                  </form>
+                )}
+
+                {contactMode === 'whatsapp' && (
+                  <div className="direct-contact-pane whatsapp-pane text-center mt-4">
+                    <div className="large-icon-circle whatsapp-icon">
+                      <MessageSquare size={40} />
+                    </div>
+                    <h4>Chat with our Legal Team</h4>
+                    <p>Get instant replies and share your documents securely over WhatsApp.</p>
+                    <a href="https://wa.me/919021640817" target="_blank" rel="noopener noreferrer" className="btn action-btn whatsapp-btn">
+                      Start WhatsApp Chat
+                    </a>
                   </div>
-                </form>
+                )}
+
+                {contactMode === 'call' && (
+                  <div className="direct-contact-pane call-pane text-center mt-4">
+                    <div className="large-icon-circle call-icon">
+                      <PhoneCall size={40} />
+                    </div>
+                    <h4>Speak with a Partner</h4>
+                    <p>For urgent matters, bails, or immediate legal intervention, call us directly.</p>
+                    <a href="tel:+919021640817" className="btn action-btn call-btn">
+                      Call +91-9021640817
+                    </a>
+                  </div>
+                )}
               </>
             )}
           </div>

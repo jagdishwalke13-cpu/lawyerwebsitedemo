@@ -100,7 +100,7 @@ const AboutUs = () => {
               <div className="lawyer-image-wrapper">
                 <div className="floating-gold-frame" />
                 <img 
-                  src="/lawyer-portrait.png" 
+                  src="/adv-rajesh-jaiswal.png" 
                   alt="Senior Advocate Rajesh Jaiswal - Founder & Managing Partner" 
                   className="lawyer-portrait-img"
                 />

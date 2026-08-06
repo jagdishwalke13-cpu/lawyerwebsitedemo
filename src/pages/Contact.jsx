@@ -11,7 +11,7 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
-    practiceArea: 'Commercial Litigation & Appeals',
+    practiceArea: 'Notary Services',
     caseDetails: '',
     isUrgent: false
   });
@@ -20,13 +20,9 @@ const Contact = () => {
   const [caseRef, setCaseRef] = useState('');
 
   const practiceDomains = [
-    { id: 'Commercial Litigation & Appeals', label: '⚖️ Commercial Litigation & Appeals' },
-    { id: 'Corporate Law & M&A', label: '🏢 Corporate Law & M&A' },
-    { id: 'White Collar Defense & PMLA', label: '🚨 White Collar Defense & PMLA' },
-    { id: 'Bail & Criminal Trial Defense', label: '⚖️ Bail & Criminal Defense' },
-    { id: 'Real Estate & RERA Appeals', label: '📑 Property & RERA Appeals' },
-    { id: 'Cyber Fraud & Banking Recovery', label: '💻 Cyber Fraud & Banking' },
-    { id: 'Family & Matrimonial Settlements', label: '🤝 Family & Matrimonial' },
+    { id: 'Notary Services', label: '✒️ Notary Services' },
+    { id: 'Affidavit Service', label: '📑 Affidavit Service' },
+    { id: 'Attestation', label: '✅ Attestation & Verification' },
     { id: 'General Legal Advisory', label: '📋 General Legal Counsel' }
   ];
 

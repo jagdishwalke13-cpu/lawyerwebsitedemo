@@ -2,95 +2,111 @@ import React, { useState } from 'react';
 import { ArrowRight, Scale, Shield, Award, CheckCircle2, PhoneCall, BookOpen, FileText, ChevronRight, Gavel, Lock, Building, Users, Filter } from 'lucide-react';
 import './PracticeAreas.css';
 
-// 8 Interactive Service Cards with Categories
 const practiceServices = [
   {
-    id: 'corporate',
-    category: 'Corporate & Commercial',
-    title: 'Corporate Law & M&A',
-    description: 'Structuring joint ventures, mergers, regulatory compliance, and governance for top Indian corporations.',
-    bgImage: '/practice-corporate.png',
-    statutes: ['Companies Act, 2013', 'SEBI Regulations', 'FEMA & RBI Guidelines', 'Insolvency & Bankruptcy Code (IBC)'],
-    detail: 'We advise domestic and multinational enterprises on complex cross-border transactions, joint ventures, private equity investments, and corporate restructuring before NCLT and appellate tribunals.'
-  },
-  {
-    id: 'litigation',
-    category: 'Trial & Litigation',
-    title: 'Commercial Litigation',
-    description: 'Aggressive representation in shareholder disputes, recovery suits, and Supreme Court appeals.',
-    bgImage: '/practice-litigation.png',
-    statutes: ['Code of Civil Procedure (CPC)', 'Arbitration & Conciliation Act', 'Commercial Courts Act', 'Specific Relief Act'],
-    detail: 'Our litigation team represents corporate entities and promoters in high-stakes commercial disputes, contractual breach enforcement, and corporate recovery before the Supreme Court and High Courts.'
-  },
-  {
-    id: 'white-collar',
-    category: 'Constitutional & Criminal',
-    title: 'White Collar & PMLA',
-    description: 'Specialized criminal defense in financial fraud, ED/CBI investigations, and economic offenses.',
-    bgImage: '/practice-cyber.png',
-    statutes: ['Prevention of Money Laundering Act (PMLA)', 'Prevention of Corruption Act', 'Companies Act Fraud Sections', 'BNS & IPC Economic Offenses'],
-    detail: 'We provide strategic defense counsel in multi-jurisdictional investigations by ED, CBI, SFIO, and EOW, defending directors and high-net-worth individuals in white-collar prosecutions.'
-  },
-  {
-    id: 'bail',
-    category: 'Constitutional & Criminal',
-    title: 'Bail Matters & Defense',
-    description: 'Immediate intervention, anticipatory bail, and rigorous criminal trial defense across all jurisdictions.',
-    bgImage: '/practice-litigation.png',
-    statutes: ['Bharatiya Nagarik Suraksha Sanhita (BNSS) / CrPC', 'Bharatiya Nyaya Sanhita (BNS) / IPC', 'NDPS Act', 'UAPA & MCOCA'],
-    detail: 'We secure immediate constitutional relief, regular bail, and anticipatory bail in complex sessions and High Court trials, ensuring absolute protection of personal liberty and constitutional rights.'
-  },
-  {
     id: 'family',
-    category: 'Constitutional & Criminal',
-    title: 'Family & Matrimonial',
-    description: 'Confidential resolution of high-net-worth divorce, child custody, and family estate settlements.',
+    category: 'Court Matters',
+    title: 'Family Court Matters',
+    description: 'We provide expert legal assistance in family court cases, helping clients navigate sensitive issues such as divorce, maintenance, child custody, and alimony.',
     bgImage: '/practice-property.png',
-    statutes: ['Hindu Marriage Act', 'Special Marriage Act', 'Guardians and Wards Act', 'Family Courts Act'],
-    detail: 'We handle sensitive matrimonial disputes, international child custody petitions, alimony negotiations, and family business succession with utmost discretion and dignity.'
+    statutes: ['Family Courts Act', 'Hindu Marriage Act', 'Special Marriage Act'],
+    detail: 'Our compassionate approach ensures your interests and the well-being of your family are always safeguarded throughout every stage of the legal process.'
   },
   {
-    id: 'property',
-    category: 'Trial & Litigation',
-    title: 'Real Estate & Property',
-    description: 'Title due diligence, land acquisition, RERA disputes, and commercial lease structuring.',
-    bgImage: '/practice-property.png',
-    statutes: ['Transfer of Property Act', 'Real Estate (Regulation and Development) Act (RERA)', 'Registration Act', 'Land Acquisition Act'],
-    detail: 'Our property practice conducts exhaustive title due diligence, represents developers and buyers in RERA litigation, and drafts high-value commercial leases and conveyance deeds.'
+    id: 'district',
+    category: 'Court Matters',
+    title: 'District Court Matters',
+    description: 'Handling a wide range of civil and criminal disputes at the district court level with strong advocacy.',
+    bgImage: '/practice-litigation.png',
+    statutes: ['Code of Civil Procedure', 'Bharatiya Nyaya Sanhita (BNS)'],
+    detail: 'We provide comprehensive legal representation in various civil suits and criminal trials across District Courts, ensuring timely and effective resolution.'
   },
   {
-    id: 'cyber',
-    category: 'Technology & IPR',
-    title: 'Cyber Fraud & IT Law',
-    description: 'Legal defense and recovery in online financial fraud, data privacy breaches, and IT Act disputes.',
+    id: 'bails',
+    category: 'Court Matters',
+    title: 'Bails, Criminal Trials',
+    description: 'Expert assistance in securing bail and providing dedicated legal defense throughout criminal trials.',
     bgImage: '/practice-cyber.png',
-    statutes: ['Information Technology Act, 2000', 'Digital Personal Data Protection Act (DPDP)', 'Cyber Crime Rules', 'BNS Cyber Offenses'],
-    detail: 'We assist victims of complex banking cyber fraud, crypto asset tracing, data breach litigation, and corporate compliance with emerging Indian data privacy frameworks.'
+    statutes: ['Bharatiya Nagarik Suraksha Sanhita (BNSS)', 'Criminal Procedure Code'],
+    detail: 'Securing immediate relief, regular bail, and anticipatory bail in complex sessions trials while protecting your fundamental rights.'
   },
   {
-    id: 'ip',
-    category: 'Technology & IPR',
-    title: 'Intellectual Property',
-    description: 'Trademark protection, patent infringement litigation, and international domestic arbitration.',
+    id: 'highcourt',
+    category: 'Court Matters',
+    title: 'High Court Matters',
+    description: 'Representation in complex civil and criminal cases before the High Court, including writ petitions challenging government actions.',
+    bgImage: '/practice-litigation.png',
+    statutes: ['Constitution of India (Article 226)', 'Civil Procedure Code'],
+    detail: 'Our appellate practice handles intricate appeals, revisions, and writ petitions before the High Court with commanding courtroom advocacy.'
+  },
+  {
+    id: 'documentation',
+    category: 'Documentation',
+    title: 'Documentation',
+    description: 'Preparation, verification, and notarization of all essential legal documents ensuring clear and lawful transactions.',
+    bgImage: '/practice-property.png',
+    statutes: ['Registration Act', 'Indian Stamp Act'],
+    detail: 'We draft and register high-value commercial agreements, sale deeds, lease deeds, and other statutory documents with rigorous precision.'
+  },
+  {
+    id: 'cooperative',
+    category: 'Corporate & Tribunals',
+    title: 'Co-operative matters & Appellate',
+    description: 'Legal services for cooperative society disputes and appeals, backed by extensive experience with over 200 societies.',
     bgImage: '/practice-corporate.png',
-    statutes: ['Trade Marks Act, 1999', 'Patents Act, 1970', 'Copyright Act, 1957', 'Designs Act'],
-    detail: 'We safeguard corporate brand equity through trademark prosecution, aggressive infringement litigation, and licensing agreements before Commercial Courts and IP divisions.'
+    statutes: ['Co-operative Societies Act'],
+    detail: 'Providing specialized counsel for housing societies, credit cooperatives, and managing committee disputes before the appellate authorities.'
+  },
+  {
+    id: 'drt',
+    category: 'Corporate & Tribunals',
+    title: 'DRT (Debt Recovery Tribunal)',
+    description: 'Representation in recovery disputes before the Debt Recovery Tribunal for speedy resolution of financial claims.',
+    bgImage: '/practice-corporate.png',
+    statutes: ['SARFAESI Act', 'Recovery of Debts Due to Banks and Financial Institutions Act'],
+    detail: 'Assisting financial institutions, banks, and corporate debtors in high-value debt recovery proceedings and securitization appeals.'
+  },
+  {
+    id: 'mat',
+    category: 'Corporate & Tribunals',
+    title: 'MAT (Administrative Tribunal)',
+    description: 'Handling service and employment-related disputes before the Maharashtra Administrative Tribunal.',
+    bgImage: '/practice-litigation.png',
+    statutes: ['Administrative Tribunals Act', 'Service Rules'],
+    detail: 'Representing government employees in matters of promotion, transfer, disciplinary actions, and pension disputes before the MAT.'
+  },
+  {
+    id: 'consumer',
+    category: 'Corporate & Tribunals',
+    title: 'Consumer Matters',
+    description: 'Helping consumers assert their rights and pursue grievances through consumer forums and appellate authorities.',
+    bgImage: '/practice-property.png',
+    statutes: ['Consumer Protection Act'],
+    detail: 'Filing complaints and fighting for compensation in cases of medical negligence, deficiency in service, and unfair trade practices.'
+  },
+  {
+    id: 'ipr',
+    category: 'Corporate & Tribunals',
+    title: 'IPR Matters',
+    description: 'A Legal Lawyer help businesses with acquisitions and mergers, trademarks, copyrights and patents.',
+    bgImage: '/practice-cyber.png',
+    statutes: ['Trade Marks Act', 'Copyright Act', 'Patents Act'],
+    detail: 'We safeguard corporate brand equity through trademark prosecution, aggressive infringement litigation, and IP licensing agreements.'
   }
 ];
 
 const categories = [
-  'All Specializations',
-  'Corporate & Commercial',
-  'Trial & Litigation',
-  'Constitutional & Criminal',
-  'Technology & IPR'
+  'All Services',
+  'Court Matters',
+  'Corporate & Tribunals',
+  'Documentation'
 ];
 
 const PracticeAreas = () => {
   const [selectedService, setSelectedService] = useState(practiceServices[0]);
-  const [activeCategory, setActiveCategory] = useState('All Specializations');
+  const [activeCategory, setActiveCategory] = useState('All Services');
 
-  const filteredServices = activeCategory === 'All Specializations'
+  const filteredServices = activeCategory === 'All Services'
     ? practiceServices
     : practiceServices.filter(s => s.category === activeCategory);
 
@@ -103,12 +119,10 @@ const PracticeAreas = () => {
       {/* Page Header Banner - STRICT 170px top padding guarantees ZERO OVERLAP with fixed navbar */}
       <section className="practice-page-header">
         <div className="container text-center">
-          <span className="text-gold" style={{ fontWeight: 700, fontSize: '0.85rem', letterSpacing: '2px', textTransform: 'uppercase', display: 'block', marginBottom: '0.75rem' }}>
-            Our Legal Specializations
-          </span>
-          <h1 className="practice-page-title">Unrivaled Practice Areas</h1>
+          <span className="section-tag text-gold">What We Do</span>
+          <h1 className="practice-page-title">Our Services</h1>
           <p className="practice-page-subtitle">
-            Combining rigorous statutory precision with commanding courtroom advocacy across corporate law, commercial litigation, white-collar defense, and constitutional litigation.
+            Professional legal services ensuring your documentation is authenticated, verified, and legally binding.
           </p>
         </div>
       </section>
@@ -133,7 +147,7 @@ const PracticeAreas = () => {
                 key={idx}
                 onClick={() => {
                   setActiveCategory(cat);
-                  const firstMatch = cat === 'All Specializations' ? practiceServices[0] : practiceServices.find(s => s.category === cat);
+                  const firstMatch = cat === 'All Services' ? practiceServices[0] : practiceServices.find(s => s.category === cat);
                   if (firstMatch) setSelectedService(firstMatch);
                 }}
                 className={`practice-filter-btn ${activeCategory === cat ? 'active' : ''}`}
