@@ -191,7 +191,7 @@
 .nav-links-desktop {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 16px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -217,6 +217,7 @@
   border: none;
   cursor: pointer;
   transition: color 0.3s ease;
+  white-space: nowrap; /* PREVENTS WRAPPING */
 }
 
 .nav-link:hover,
@@ -1178,4 +1179,10 @@
   background: #2563EB;
   transform: translateY(-2px);
   box-shadow: 0 12px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* WIDER NAVBAR LAYOUT OVERRIDE */
+.top-bar-inner,
+.navbar-container {
+  max-width: 96% !important;
 }

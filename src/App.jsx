@@ -11,6 +11,7 @@ import LegalInsights from './pages/LegalInsights';
 import Internships from './pages/Internships';
 import InternWall from './pages/InternWall';
 import Contact from './pages/Contact';
+import Gallery from './pages/Gallery';
 
 // ScrollToTop component ensures that whenever a route changes, the viewport scrolls cleanly to (0, 0)
 const ScrollToTop = () => {
@@ -36,6 +37,7 @@ function App() {
           <Route index element={<Navigate to="/home" replace />} />
           <Route path="home" element={<Home />} />
           <Route path="about-us" element={<AboutUs />} />
+          <Route path="gallery" element={<Gallery />} />
           <Route path="practice-areas" element={<PracticeAreas />} />
           <Route path="our-team" element={<OurTeam />} />
           <Route path="legal-insights" element={<LegalInsights />} />

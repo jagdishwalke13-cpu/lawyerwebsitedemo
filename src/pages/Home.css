@@ -1548,3 +1548,315 @@
   }
 }
 
+/* NEW HOMEPAGE REFACTOR STYLES */
+
+.new-lawyer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+.new-team-card {
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.new-team-card:hover {
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  transform: translateY(-5px);
+}
+.new-team-card .team-img-wrap {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+.new-team-card .team-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: grayscale(80%);
+}
+.new-team-card:hover .team-img-wrap img {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+.team-card-body {
+  padding: 24px;
+}
+.team-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #0B132B;
+  margin: 0 0 4px;
+}
+.team-role {
+  font-size: 13px;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 12px;
+}
+.team-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.team-desc {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.team-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0B132B;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.team-cta:hover {
+  color: #D4AF37;
+}
+.team-cta-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0B132B;
+  text-decoration: none;
+  border-bottom: 2px solid #D4AF37;
+  padding-bottom: 4px;
+  transition: all 0.2s ease;
+}
+.team-cta-main:hover {
+  color: #D4AF37;
+  gap: 12px;
+}
+
+/* WHY CHOOSE US NEW */
+.new-why-us {
+  padding: 100px 0;
+  background: #ffffff;
+}
+.new-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+}
+.new-why-card {
+  padding: 30px;
+  background: #f8f9fa;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.new-why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-color: #D4AF37;
+}
+.why-num {
+  font-size: 48px;
+  font-weight: 800;
+  color: rgba(11, 19, 43, 0.05);
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-family: 'Playfair Display', serif;
+}
+.new-why-card h3 {
+  font-size: 18px;
+  color: #0B132B;
+  margin: 16px 0 12px;
+  font-family: 'Playfair Display', serif;
+}
+.new-why-card p {
+  font-size: 14px;
+  color: #6B7280;
+  line-height: 1.6;
+}
+
+/* FOUNDER STATS */
+.new-founder-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #0B132B;
+  font-weight: 500;
+  background: #f8f9fa;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: 1px solid #eaeaea;
+}
+
+/* CONTACT SECTION NEW */
+.contact-consultation-section {
+  padding: 100px 0;
+  background: #0B132B;
+  color: #fff;
+}
+.contact-2col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.contact-main-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  margin: 16px 0 24px;
+  color: #fff;
+}
+.contact-sub-text {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.contact-item-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.contact-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: rgba(212, 175, 55, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+.contact-item-row h4 {
+  font-size: 14px;
+  color: #D4AF37;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.contact-item-row p {
+  margin: 0;
+  color: #fff;
+  font-size: 16px;
+}
+.contact-mini-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.c-mini-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
+.c-mini-card h5 {
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: #fff;
+}
+.c-mini-card p {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* FORM */
+.premium-form-box {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  background: #f9fafb;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: #D4AF37;
+  outline: none;
+  background: #fff;
+}
+.btn-submit-premium {
+  width: 100%;
+  background: #0B132B;
+  color: #D4AF37;
+  padding: 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-submit-premium:hover {
+  background: #D4AF37;
+  color: #0B132B;
+}
+
+/* RESPONSIVE UPDATES */
+@media (max-width: 992px) {
+  .new-lawyer-grid { grid-template-columns: repeat(2, 1fr); }
+  .new-why-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-2col-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .new-lawyer-grid { grid-template-columns: 1fr; }
+  .new-why-grid { grid-template-columns: 1fr; }
+  .new-founder-stats { grid-template-columns: 1fr; }
+  .contact-mini-cards { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+}
